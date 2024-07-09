@@ -5,7 +5,7 @@
 body {
     height: 100%;
     font-family: Roboto, sans-serif;
-    background-color: #87A96B;
+    background-color: #83B4FF;
 }
 
 .div-0 {
@@ -13,9 +13,10 @@ body {
     justify-content: center;
     align-items: center;
     font-size: 48px;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    font-weight: 500;
-    background-color: #4B6F44;
+    font-family: "Ga Maamli", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+    background-color: #5A72A0;
     color: white;
     padding: 5px;
 }
@@ -27,10 +28,10 @@ body {
 }
 
 .addBook {
-    border: 1px solid #362706;
+    border: 1px solid #1A2130;
     border-radius: 4px;
     padding: 5px;
-    background-color: #362706;
+    background-color: #1A2130;
     color: white;
     font-size: 24px;
     font-weight: bold;
@@ -38,15 +39,15 @@ body {
 }
 
 .addBook:hover {
-    background-color: #87A96B;
-    border: 1px solid #87A96B;
+    background-color: #5A72A0;
+    border: 1px solid #5A72A0;
 }
 
 dialog {
     margin: auto;
     border-radius: 5px;
     background-color: white;
-    border: 2px solid #362706;
+    border: 2px solid #1A2130;
 }
 
 label {
@@ -55,8 +56,8 @@ label {
 }
 
 .dialogBtn {
-    border: 1px solid #362706;
-    background-color: #362706;
+    border: 1px solid #1A2130;
+    background-color: #1A2130;
     color: white;
     padding: 4px;
     font-weight: bold;
@@ -75,9 +76,16 @@ label {
     height: 200px;
     width: 27%;
     margin: 10px;
-    border: 2px solid #362706;
+    border: 2px solid #1A2130;
     border-radius: 20px;
-    background-color: #4B6F44;
+    background-color: #5A72A0;
+    
+}
+
+.bookContainer > h1{
+    font-family: "Ga Maamli", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .bookContainer>* {
@@ -87,7 +95,7 @@ label {
 
 h1 {
     text-align: center;
-    background-color: #362706;
+    background-color: #1A2130;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
 }
@@ -100,7 +108,7 @@ h1 {
 }
 
 .div-4 {
-    background-color: #4B6F44;
+    background-color: #5A72A0;
     color: white;
     position: fixed;
     left: 0;
@@ -112,8 +120,9 @@ h1 {
 .quote {
     text-align: center;
     font-size: 24px;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    font-style: 500;
+    font-family: "Ga Maamli", sans-serif;
+  font-weight: 200;
+  font-style: normal;
 }
 
 .quote-author {
