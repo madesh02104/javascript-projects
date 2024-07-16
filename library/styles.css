@@ -1,5 +1,52 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
 * {
+    border: none;
     margin: 0;
+    font-family: Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+menu:not(article menu),
+ol:not(article ol),
+ul:not(article ul) {
+    list-style: none;
+}
+
+menu,
+ol,
+ul {
+    padding-left: 0;
+}
+
+article ol,
+article ul {
+    list-style-position: inside;
+}
+
+
+html {
+    -webkit-text-size-adjust: none; /* for iOS Safari */
+    text-size-adjust: none; /* for other mobile browsers */
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    html {
+          scroll-behavior: smooth;
+    }
+}
+
+label,
+button,
+select,
+summary,
+[type=radio],
+[type=submit],
+[type=checkbox] {
+    cursor: pointer;
 }
 
 body {
@@ -53,6 +100,11 @@ dialog {
 label {
     display: block;
     margin-top: 8px;
+}
+
+input{
+    border: 1px solid black;
+    border-radius: 4px;
 }
 
 .dialogBtn {
