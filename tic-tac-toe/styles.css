@@ -27,17 +27,20 @@ article ul {
 }
 
 html {
-    font-size: 62.5%; /* (62.5/100) * 16px = 10px */
+    font-size: 62.5%;
+    /* (62.5/100) * 16px = 10px */
 }
 
 html {
-    -webkit-text-size-adjust: none; /* for iOS Safari */
-    text-size-adjust: none; /* for other mobile browsers */
+    -webkit-text-size-adjust: none;
+    /* for iOS Safari */
+    text-size-adjust: none;
+    /* for other mobile browsers */
 }
 
 @media (prefers-reduced-motion: no-preference) {
     html {
-          scroll-behavior: smooth;
+        scroll-behavior: smooth;
     }
 }
 
@@ -51,11 +54,11 @@ summary,
     cursor: pointer;
 }
 
-body{
+body {
     background-color: #F4EBD0;
 }
 
-header{
+header {
     font-size: 5rem;
     font-family: Helvetica;
     font-weight: bold;
@@ -63,19 +66,20 @@ header{
     color: #122620;
 }
 
-main{
+main {
     display: grid;
     grid-template-columns: 1fr 1fr;
     margin-top: 2rem;
 }
 
-section{
+section {
     display: flex;
     flex-direction: column;
     gap: 3rem;
+    margin-right: 2rem;
 }
 
-form{
+form {
     display: flex;
     flex-direction: column;
     padding: 0.2rem 5rem;
@@ -84,86 +88,162 @@ form{
     border-radius: 4px;
 }
 
-form > h2{
+form>h2 {
     font-size: 3rem;
     text-align: center;
 }
 
-.name{
+.name {
     font-size: 1.6rem;
     padding: 1rem;
+    font-weight: 600;
 }
 
-input{
+input {
     border-radius: 4px;
     margin-left: 1rem;
-    margin-right: 15rem;
+    margin-right: 25rem;
     border: 1px solid black;
     margin-bottom: 1rem;
     height: 3rem;
+    background-color: #F4EBD0;
+    color: black;
+    font-weight: 600;
 }
 
-article{
+input:hover{
+    background-color: #c9c8c6;
+    cursor: pointer;
+}
+
+article {
     border: 3px solid black;
     border-radius: 4px;
     background-color: #D6AD60;
 }
 
-article > h2{
+article>h2 {
     font-size: 3rem;
     text-align: center;
 }
 
-li{
+li {
     font-size: 1.6rem;
     padding: 0.2rem;
 }
 
-aside{
+aside {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 5rem;
+    border: 3px solid black;
+    background-color: #D6AD60;
+    border-radius: 4px;
+    margin: 0 2rem;
 }
 
-.gameBoard{
+article,
+form,
+aside {
+    box-shadow: 0.5rem 0.5rem #122620;
+}
+
+.gameBoard {
     display: grid;
     grid-template-columns: repeat(3, 10rem);
     grid-template-rows: repeat(3, 10rem);
 }
 
-#tile1{
+#tile1 {
     border-right: 3px solid black;
     border-bottom: 3px solid black;
 }
 
-#tile2{
+#tile2 {
     border-right: 3px solid black;
     border-bottom: 3px solid black;
 }
 
-#tile3{
+#tile3 {
     border-bottom: 3px solid black;
 }
 
-#tile4{
+#tile4 {
     border-right: 3px solid black;
     border-bottom: 3px solid black;
 }
 
-#tile5{
+#tile5 {
     border-right: 3px solid black;
     border-bottom: 3px solid black;
 }
 
-#tile6{
+#tile6 {
     border-bottom: 3px solid black;
 }
 
-#tile7{
+#tile7 {
     border-right: 3px solid black;
 }
 
-#tile8{
+#tile8 {
     border-right: 3px solid black;
 }
 
+.tile{
+    transition: 0.5s;
+}
+
+.tile:hover{
+    background-color: #a7884f;
+    opacity: 0.5;
+}
+
+.new-game-btn {
+    font-size: 2rem;
+    font-weight: bold;
+    border: 1px solid black;
+    background-color: #122620;
+    color: #F4EBD0;
+    padding: 1rem 2rem;
+    border-radius: 1rem; 
+    transition: 0.3s;
+}
+
+.new-game-btn:hover{
+    background-color: #D6AD60;
+    color: black;
+    cursor: pointer;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.alert-box {
+    margin-top: 2.5rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: rgb(2, 54, 2);
+    background-color: rgb(81, 236, 81);
+    padding: 0.5rem 1rem;
+    border: 1px solid rgb(2, 54, 2);
+    border-radius: 4px;
+    display: none;
+}
+
+.red {
+    margin-top: 2.5rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: rgb(192, 12, 12);
+    background-color: rgb(248, 149, 149);
+    padding: 0.5rem 1rem;
+    border: 1px solid rgb(192, 12, 12);
+    border-radius: 4px;
+    display: none;
+}

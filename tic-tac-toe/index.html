@@ -15,10 +15,11 @@
             <form>
                 <h2>Enter Player Details</h2>
                 <label for="name1" class="name">Enter Player 1 Name:</label>
-                <input type="text" name="name1" id="name1">
+                <input type="text" name="name1" id="name1" value="playerX">
 
                 <label for="name2" class="name">Enter Player 2 Name:</label>
-                <input type="text" name="name2" id="name2">
+                <input type="text" name="name2" id="name2" value="playerY">
+
             </form>
             <article>
                 <h2>Instructions</h2>
@@ -44,9 +45,12 @@
                 <div class="tile" id="tile8"></div>
                 <div class="tile" id="tile9"></div>
             </div>
+            <button class="new-game-btn">New Game</button>
         </aside>
     </main>
-    <footer></footer>
+    <footer>
+        <span class="alert-box red">PlayerX won</span>
+    </footer>
     <script src="script.js"></script>
 </body>
 
