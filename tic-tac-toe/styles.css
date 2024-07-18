@@ -157,6 +157,13 @@ aside {
     grid-template-rows: repeat(3, 10rem);
 }
 
+.gameBoard > div{
+    font-size: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 #tile1 {
     border-right: 3px solid black;
     border-bottom: 3px solid black;
@@ -194,7 +201,7 @@ aside {
 }
 
 .tile{
-    transition: 0.5s;
+    transition: 0.2s;
 }
 
 .tile:hover{
