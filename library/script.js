@@ -1,112 +1,105 @@
 // yee ! Learned using dialog :)
-const dialogPopUp = document.querySelector("dialog");
-const addBook = document.querySelector(".addBook");
-
-addBook.addEventListener("click", () => {
-    dialogPopUp.showModal();
-})
-
-const container = document.querySelector(".div-3");
-
-
-const myLibrary = [];
-
-function Book(title, authorName, numberOfPages, readStatus) {
-    this.title = title;
-    this.authorName = authorName;
-    this.numberOfPages = numberOfPages;
-    this.readStatus = readStatus;
-}
-
-function addBookToLibrary(newBook) {
-    
-    const tempBookContainer = document.createElement("div");
-    tempBookContainer.classList.add("bookContainer");
-
-    const title = document.createElement("h1");
-    title.textContent = newBook.title;
-    tempBookContainer.appendChild(title);
-
-    const authorName = document.createElement("h3");
-    authorName.textContent = `Name of author :  ${newBook.authorName}`;
-    tempBookContainer.appendChild(authorName);
-
-    const numberOfPages = document.createElement("h3");
-    numberOfPages.textContent = `Number of pages : ${newBook.numberOfPages}`;
-    tempBookContainer.appendChild(numberOfPages);
-
-    const buttons = document.createElement("div");
-    buttons.classList.add("buttons");
-
-    const askReadStatus = document.createElement("h4");
-    askReadStatus.textContent = "Have you read it:";
-    buttons.appendChild(askReadStatus);
-    const readStatus = document.createElement("button");
-    readStatus.style.color = "white";
-    if (newBook.readStatus) {
-        readStatus.textContent = "Yes";
-        readStatus.style.backgroundColor = "green";
-    } else {
-        readStatus.textContent = "No";
-        readStatus.style.backgroundColor = "red";
+class Book {
+    constructor(title, authorName, numberOfPages, readStatus) {
+        this.title = title;
+        this.authorName = authorName;
+        this.numberOfPages = numberOfPages;
+        this.readStatus = readStatus;
     }
-    readStatus.classList.add("readButton");
-    buttons.appendChild(readStatus);
-
-    const deleteButton = document.createElement("button");
-    deleteButton.classList.add("deleteButton");
-    deleteButton.style.backgroundColor = "red";
-    deleteButton.style.color = "white";
-    deleteButton.textContent = "Delete";
-
-    buttons.appendChild(deleteButton);
-    tempBookContainer.appendChild(buttons);
-    console.log(buttons)
-    container.appendChild(tempBookContainer);
-
-    readStatus.addEventListener("click", () => {
-        if (newBook.readStatus) {
-            readStatus.style.backgroundColor = "red";
-            readStatus.textContent = "No";
-        } else {
-            readStatus.style.backgroundColor = "green";
-            readStatus.textContent = "Yes";
-        }
-        newBook.readStatus = !newBook.readStatus;
-    });
-
-    deleteButton.addEventListener("click", () => {
-        myLibrary.splice(newBook.index, 1);
-        container.removeChild(tempBookContainer);
-    });
-
 }
 
+class Library {
+    constructor() {
+        this.books = [];
+        this.container = document.querySelector('.div-3');
+        this.dialogPopUp = document.querySelector('dialog');
+        this.addBookButton = document.querySelector('.addBook');
+        this.form = document.querySelector('form');
+        this.init();
+    }
 
-const forminput = document.querySelector("form");
+    init() {
+        this.addBookButton.addEventListener('click', () => this.dialogPopUp.showModal());
+        this.form.addEventListener('submit', (event) => this.handleFormSubmit(event));
+        const cancelButton = document.querySelector('#cancelBtn');
+        cancelButton.addEventListener('click', () => this.dialogPopUp.close());
+    }
 
-forminput.addEventListener("submit", (event) => {
-    event.preventDefault();
+    handleFormSubmit(event) {
+        event.preventDefault();
+        const title = document.querySelector('#title').value;
+        const authorName = document.querySelector('#author').value;
+        const numberOfPages = document.querySelector('#pages').value;
+        const readStatus = document.querySelector('input[name="readStatus"]:checked').value === 'true';
 
-    const title = document.querySelector("#title").value;
-    const authorName = document.querySelector("#author").value;
-    const numberOfPages = document.querySelector("#pages").value;
-    const readStatus = document.querySelector('input[name="readStatus"]:checked').value === "true";
+        const newBook = new Book(title, authorName, numberOfPages, readStatus);
+        this.books.push(newBook);
+        this.addBookToLibrary(newBook);
 
-    const newBook = new Book(title, authorName, numberOfPages, readStatus);
-    myLibrary.push(newBook);
-    addBookToLibrary(newBook);
+        this.dialogPopUp.close();
+        this.form.reset();
+    }
 
-    dialogPopUp.close();
-    forminput.reset();
-});
+    addBookToLibrary(book) {
+        const bookContainer = document.createElement('div');
+        bookContainer.classList.add('bookContainer');
 
-const cancelButton = document.querySelector("#cancelBtn");
-cancelButton.addEventListener("click", () => {
-    dialogPopUp.close();
-});
+        const title = document.createElement('h1');
+        title.textContent = book.title;
+        bookContainer.appendChild(title);
 
-const harryPotter = new Book('Harry Potter','JK Rowling', 1234, true);
-addBookToLibrary(harryPotter);
-const meditations = new Book('Meditations','Marcus Aurilius', 340 , false);
-addBookToLibrary(meditations);
+        const authorName = document.createElement('h3');
+        authorName.textContent = `Name of author: ${book.authorName}`;
+        bookContainer.appendChild(authorName);
+
+        const numberOfPages = document.createElement('h3');
+        numberOfPages.textContent = `Number of pages: ${book.numberOfPages}`;
+        bookContainer.appendChild(numberOfPages);
+
+        const buttons = document.createElement('div');
+        buttons.classList.add('buttons');
+
+        const askReadStatus = document.createElement('h4');
+        askReadStatus.textContent = 'Have you read it:';
+        buttons.appendChild(askReadStatus);
+
+        const readStatus = document.createElement('button');
+        readStatus.style.color = 'white';
+        readStatus.textContent = book.readStatus ? 'Yes' : 'No';
+        readStatus.style.backgroundColor = book.readStatus ? 'green' : 'red';
+        readStatus.classList.add('readButton');
+        buttons.appendChild(readStatus);
+
+        const deleteButton = document.createElement('button');
+        deleteButton.classList.add('deleteButton');
+        deleteButton.style.backgroundColor = 'red';
+        deleteButton.style.color = 'white';
+        deleteButton.textContent = 'Delete';
+        buttons.appendChild(deleteButton);
+
+        bookContainer.appendChild(buttons);
+        this.container.appendChild(bookContainer);
+
+        readStatus.addEventListener('click', () => this.toggleReadStatus(book, readStatus));
+        deleteButton.addEventListener('click', () => this.deleteBook(book, bookContainer));
+    }
+
+    toggleReadStatus(book, readStatusButton) {
+        book.readStatus = !book.readStatus;
+        readStatusButton.textContent = book.readStatus ? 'Yes' : 'No';
+        readStatusButton.style.backgroundColor = book.readStatus ? 'green' : 'red';
+    }
+
+    deleteBook(book, bookContainer) {
+        this.books = this.books.filter(b => b !== book);
+        this.container.removeChild(bookContainer);
+    }
+}
+
+const library = new Library();
+
+const harryPotter = new Book('Harry Potter', 'JK Rowling', 1234, true);
+library.addBookToLibrary(harryPotter);
+
+const meditations = new Book('Meditations', 'Marcus Aurelius', 340, false);
+library.addBookToLibrary(meditations);
