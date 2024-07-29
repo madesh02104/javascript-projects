@@ -1,0 +1,48 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-image: url('./home-background-image.jpg');
+  background-size: 100%;
+}
+
+header {
+  background-color: #030000;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.8;
+}
+
+header nav {
+  display: flex;
+}
+
+header nav button {
+  background-color: transparent;
+  border: none;
+  padding: 10px 15px;
+  margin-left: 10px;
+  cursor: pointer;
+  font-size: 20px;
+  color: #ffffff;
+}
+
+header nav button:hover {
+  background-color: #727171;
+}
+
+#content {
+  padding: 40px;
+}
+
+#content h1 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}
+
+#content p {
+  font-size: 1.3em;
+  line-height: 1.5;
+}
