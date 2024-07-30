@@ -1,3 +1,7 @@
+*{
+  box-sizing: border-box;
+}
+
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -19,18 +23,19 @@ header nav {
   display: flex;
 }
 
-header nav button {
+.nav-btn {
   background-color: transparent;
   border: none;
-  padding: 10px 15px;
-  margin-left: 10px;
+  padding: 10px 0;
+  margin-left: 2rem;
+  margin-right: 2rem;
   cursor: pointer;
   font-size: 20px;
   color: #ffffff;
 }
 
-header nav button:hover {
-  background-color: #727171;
+.nav-btn:hover {
+  border-bottom: 2px solid #ffffff;
 }
 
 #content {
