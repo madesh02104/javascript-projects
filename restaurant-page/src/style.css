@@ -2,6 +2,7 @@
   box-sizing: border-box;
 }
 
+/* Home styles */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -45,9 +46,96 @@ header nav {
 #content h1 {
   font-size: 2.5em;
   margin-bottom: 20px;
+  font-family: fantasy;
+}
+
+.text{
+  max-width: 50%;
 }
 
 #content p {
   font-size: 1.3em;
   line-height: 1.5;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.book-btn{
+  border: none;
+  background-color: #030000;
+  color: white;
+  padding: 10px 20px;
+  font-size: 20px;
+  font-weight: 700;
+  margin-top: 1.5rem;
+}
+
+.book-btn:hover{
+  background-color: #EACF3A;
+  border: 2px solid #000;
+  color: #000;
+}
+
+/* Menu styles */
+.menu-page{
+  background-image: none;
+  background-color: #EACF3A;
+}
+
+.menu-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+}
+
+.menu-category {
+  border: none;
+  box-shadow: .3rem .3rem #b9896c;
+  padding: 5px 20px;
+  background-color: #030000;
+}
+
+.menu-category > h2 {
+  text-align: center;
+  color: #EACF3A;
+}
+
+.menu-items {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 5px;
+}
+
+.menu-item{
+display: flex;
+justify-content: space-between;
+color: white;
+}
+
+.item-price{
+  font-weight: 600;
+}
+
+/* ABout us style */
+
+.about-container{
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.para {
+  font-size: 1rem;
+  font-weight: 400;
+  font-family: fantasy;
+}
+
+.social-media-icons{
+  text-align: center;
+}
+
+.social-icon{
+  margin: 20px 20px;
+  height: 32px;
+  width: 32px;
 }
