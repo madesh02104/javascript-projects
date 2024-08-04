@@ -7,3 +7,6 @@ What have I learnt in this project?
 -Configuring webpack to access assets like images/fonts/etc
 -importing and exporting modules
 -automating basic build processes using package.json
+
+
+View live preview at : https://madesh02104.github.io/javascript-projects/restaurant-page/dist
