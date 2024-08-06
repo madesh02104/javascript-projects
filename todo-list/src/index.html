@@ -9,6 +9,7 @@
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Ga+Maamli&family=Happy+Monkey&display=swap');
   </style>
+  <script src="https://kit.fontawesome.com/187aac104f.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -24,35 +25,71 @@
     <button class="add-btn">Add Task</button>
   </div>
   <div class="main-content">
-    <div class="task">
-      <div class="task-left">
-        <div class="task-title">Title</div>
-        <div class="task-desc">Description</div>
+    <div class="taskbox">
+      <div class="taskbox-left">
+        <div class="taskbox-title task-hover">Title</div>
+        <div class="taskbox-desc taskbox-hover">Description</div>
       </div>
-      <div class="task-right">
-        <div class="task-right-up">
-          <div class="task-date">
-            date
+      <div class="taskbox-right">
+        <div class="taskbox-right-up">
+          <div class="taskbox-date taskbox-hover">
+            dd-mm-yyyy
           </div>
-          <div class="task-notes">
-            notes
+          <div class="taskbox-notes taskbox-hover">
+            <i class="fa-regular fa-note-sticky fa-2x"></i>
           </div>
-          <div class="task-delete">
-            delete
+          <div class="taskbox-delete taskbox-hover">
+            <i class="fa-regular fa-trash-can fa-2x"></i>
           </div>
         </div>
-        <div class="task-right-down">
-          <div class="task-priority-tag">
-            Priority : 
+        <div class="taskbox-right-down">
+          <div class="taskbox-priority-tag">
+            Priority :&nbsp;
           </div>
-          <div class="task-priority">
-            Medium
+          <div class="taskbox-priority priority-high">
+            High
           </div>
         </div>
       </div>
     </div>
   </div>
-  <script defer src="./dist/main.js"></script>
+  <dialog class="dialog-container" id="task-dialog">
+    <form id="task-form">
+      <button type="button" id="close-dialog">x</button>
+
+      <div class="title-div">
+        <label for="task-title">Title:</label>
+        <input type="text" id="task-title" name="task-title" required>
+      </div>
+
+      <div class="desc-div">
+        <label for="task-description">Description:</label>  
+        <textarea id="task-description" name="task-description" required></textarea>
+      </div>
+
+      <div class="date-div">
+        <label for="task-due-date">Due Date:</label>
+        <input type="date" id="task-due-date" name="task-due-date">
+      </div>
+
+      <div class="notes-div">
+        <label for="task-notes">Notes:</label>
+        <textarea id="task-notes" name="task-notes"></textarea>
+      </div>
+
+      <div class="priority-div">
+        <label for="task-priority">Priority:</label>
+        <select id="task-priority" name="task-priority">
+          <option value="high">High</option>
+          <option value="medium">Medium</option>
+          <option value="low">Low</option>  
+        </select>
+      </div>
+
+      <button type="submit" class="done">Done</button>
+    </form>
+  </dialog>
+  <script src="index.js"></script>
 </body>
 
 </html>

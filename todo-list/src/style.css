@@ -58,32 +58,34 @@ summary,
 :root {
     --primary-dark: rgba(19, 19, 38, 1);
     --text-primary: rgba(255, 255, 255, 1);
-    --accent-color: rgba(48, 128, 120, 1); 
-    --gray-light: rgba(128,128,128,0.3);
+    --accent-color: rgba(48, 128, 120, 1);
+    --gray-light: rgba(128, 128, 128, 0.3);
     --gray-dark: rgba(64, 64, 64, 1);
     --yellow: rgba(250, 159, 2, 1);
-  }
+}
 
 /* styles */
 
-body{
+body {
     background-color: var(--primary-dark);
     display: flex;
     color: white;
 }
 
-.sidebar, .main-content{
+.sidebar,
+.main-content {
     background-color: var(--gray-light);
     margin: 1rem;
     padding: 2rem;
     height: 94.5vh;
+    border-radius: 1rem;
 }
 
-.sidebar{
+.sidebar {
     width: 20%;
 }
 
-.sidebar-title{
+.sidebar-title {
     font-size: 3.2rem;
     text-align: center;
     margin-top: 1rem;
@@ -92,22 +94,24 @@ body{
     font-family: "Happy Monkey";
 }
 
-.options-container{
+.options-container {
     height: 40%;
+    margin-left: 0;
+    margin-right: 0;
 }
 
-.options{
+.options {
     font-size: 2rem;
-    margin: 1.8rem;
+    margin: 1.8rem 0;
     transition: font-size 0.1s ease-in-out, color 0.1s ease-in-out;
 }
 
-.options:hover{
+.options:hover {
     color: var(--yellow);
     font-size: 2.4rem;
 }
 
-.add-btn{
+.add-btn {
     background-color: var(--accent-color);
     color: white;
     font-size: 2rem;
@@ -119,20 +123,20 @@ body{
 
 }
 
-.add-btn:hover{
-    background-color: var(--primary-dark);
-    color: var(--yellow);
+.add-btn:hover {
+    background-color: rgba(48, 128, 120, 0.6);
+    color: white;
 }
 
-.add-btn:active{
+.add-btn:active {
     transform: scale(0.95);
 }
 
-.main-content{
+.main-content {
     width: 80%;
 }
 
-.task{
+.taskbox {
     background-color: var(--primary-dark);
     border-radius: .5rem;
     padding: 0.5rem 1rem;
@@ -141,45 +145,159 @@ body{
     height: 10vh;
 }
 
-.task-left{
+.taskbox-left {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     width: 80%;
 }
 
-.task-title{
+.taskbox-title {
     font-size: 2rem;
     font-weight: 600;
 }
 
-.task-desc{
+.taskbox-desc {
     font-size: 1.4rem;
 }
 
-.task-right{
+.taskbox-right {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     width: 20%;
 }
 
-.task-right > * {
+.taskbox-right>* {
     height: 50%;
 }
 
-.task-right-up{
+.taskbox-right-up {
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-end;
     align-items: center;
+    gap: 3rem;
 }
 
-.task-right-down{
+.taskbox-date {
+    font-size: 1.6rem;
+    font-weight: 500;
+}
+
+.taskbox-right-down {
     display: flex;
     justify-content: flex-end;
     align-items: end;
 }
 
-.task-priority-tag, .task-priority{
+.taskbox-priority-tag,
+.task-priority {
     font-size: 1.6rem;
+}
+
+.priority-low {
+    background-color: var(--gray-light);
+    color: rgba(250, 5, 5, 1);
+    font-weight: 700;
+    font-size: 1.6rem;
+    padding: 0.1rem 1rem;
+    border-radius: 0.4rem;
+}
+
+.priority-mid {
+    background-color: var(--gray-light);
+    color: rgb(252, 194, 3);
+    font-weight: 700;
+    font-size: 1.6rem;
+    padding: 0.1rem 1rem;
+    border-radius: 0.4rem;
+}
+
+.priority-high {
+    background-color: var(--gray-light);
+    color: rgb(19, 212, 29);
+    font-weight: 700;
+    font-size: 1.6rem;
+    padding: 0.1rem 1rem;
+    border-radius: 0.4rem;
+}
+
+.taskbox-hover:hover {
+    color: var(--yellow);
+}
+
+.taskbox-hover:active {
+    transform: scale(0.95);
+}
+
+.taskbox-priority:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+/* Dialog styles */
+.dialog-container {
+    position: fixed;
+    top: 50%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+    background-color: var(--primary-dark);
+    border-radius: 1rem;
+    border: 1px solid var(--yellow);
+    padding: 0.5rem 1rem;
+    z-index: 999;
+    display: flex;
+}
+
+.dialog-container.active {
+    display: block;
+}
+
+#task-form {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    gap: 2rem;
+    font-size: 1.6rem;
+}
+
+#close-dialog{
+    background: none;
+    color: red;
+    font-weight: 900;
+    font-size: 2rem;
+    align-self: flex-end;
+}
+
+#close-dialog:hover{
+    background-color: var(--gray-light);
+}
+
+input, textarea, select{
+    border-radius: 0.5rem;
+    border: 1px solid var(--yellow);
+    background-color: var(--text-primary);
+}
+
+input{
+    height: 2.4rem;
+}
+
+.done{
+    background-color: var(--accent-color);
+    color: white;
+    font-size: 2rem;
+    font-weight: 600;
+    padding: 1rem 1rem;
+    border-radius: .5rem;
+    margin: 1rem 3.5rem;
+    transition: background-color 0.1s ease-in-out, color 0.1s ease-in-out;
+}
+
+.done:hover {
+    background-color: rgba(48, 128, 120, 0.6);
+    color: white;
+}
+
+.done:active {
+    transform: scale(0.95);
 }
