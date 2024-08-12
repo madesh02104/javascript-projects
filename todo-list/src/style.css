@@ -193,6 +193,14 @@ body {
     border-radius: 0.5rem;
 }
 
+.fa-note-sticky:hover{
+    color: rgb(0, 204, 255);
+}
+
+.fa-trash-can:hover{
+    color: red;
+}
+
 .taskbox .taskbox-right-down {
     display: flex;
     justify-content: flex-end;

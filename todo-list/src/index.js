@@ -78,9 +78,11 @@ const createTaskElement = (task) => {
 };
 
 const renderTasks = (tasks) => {
-  mainContent.innerHTML = ''; 
+  mainContent.innerHTML = '';
   tasks.forEach(task => {
     const taskElement = createTaskElement(task);
+    addDeleteFunctionality(taskElement);
+    addTaskBoxClickFunctionality(taskElement, task);
     mainContent.appendChild(taskElement);
   });
 };
@@ -110,27 +112,58 @@ doneBtn.addEventListener('click', (event) => {
   taskForm.reset();
 });
 
-mainContent.addEventListener('click', (event) => {
-  const target = event.target;
-  const taskElement = target.closest('.taskbox');
+const deleteTask = (taskId) => {
+  const taskIndex = storedTasks.findIndex(task => task.id === parseInt(taskId));
 
-  if (taskElement && !target.closest('.taskbox-delete')) {
-    const taskId = taskElement.dataset.taskId;
-    const task = storedTasks.find(task => task.id === taskId);
-
-    document.getElementById('task-title').value = task.title;
-    document.getElementById('task-description').value = task.description;
-
-    taskDialog.classList.add('active');
-  }
-
-  if (target.closest('.taskbox-delete')) {
-    const taskId = target.closest('.taskbox').dataset.taskId;
-    storedTasks = storedTasks.filter(task => task.id !== taskId);
+  if (taskIndex !== -1) {
+    storedTasks.splice(taskIndex, 1); 
     saveTasksToLocalStorage(storedTasks);
-    renderTasks(storedTasks);
   }
-});
+};
+
+const addDeleteFunctionality = (taskElement) => {
+  const deleteIcon = taskElement.querySelector('.taskbox-delete i');
+  deleteIcon.addEventListener('click', () => {
+    const taskId = taskElement.dataset.taskId;
+    deleteTask(taskId);
+    taskElement.remove();
+  });
+};
+
+const openEditDialog = (task) => {
+  document.getElementById('task-title').value = task.title;
+  document.getElementById('task-description').value = task.description;
+  document.getElementById('task-due-date').value = task.dueDate;
+  document.getElementById('task-notes').value = task.notes;
+  document.getElementById('task-priority').value = task.priority;
+
+  taskDialog.classList.add('active');
+
+  doneBtn.onclick = (event) => {
+    event.preventDefault();
+
+    task.title = document.getElementById('task-title').value;
+    task.description = document.getElementById('task-description').value;
+    task.dueDate = document.getElementById('task-due-date').value;
+    task.notes = document.getElementById('task-notes').value;
+    task.priority = document.getElementById('task-priority').value;
+
+    saveTasksToLocalStorage(storedTasks);
+
+    renderTasks(storedTasks);
+
+    taskDialog.classList.remove('active');
+    taskForm.reset();
+  };
+};
+
+const addTaskBoxClickFunctionality = (taskElement, task) => {
+  taskElement.addEventListener('click', (event) => {
+    if (!event.target.classList.contains('fa-trash-can')) {
+      openEditDialog(task);
+    }
+  });
+};
 
 renderTasks(storedTasks);
 
