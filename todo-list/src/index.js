@@ -8,6 +8,7 @@ const closeDialogBtn = document.getElementById('close-dialog');
 const taskForm = document.getElementById('task-form');
 const doneBtn = document.querySelector('.done');
 const mainContent = document.querySelector('.main-content');
+const editBtn = document.querySelector('.edit');
 
 const storedTasks = loadTasksFromLocalStorage();
 
@@ -67,6 +68,16 @@ const createTaskElement = (task) => {
   taskPriority.classList.add('taskbox-priority');
   taskPriority.textContent = task.priority;
 
+  if (task.priority == 'low') {
+    taskPriority.classList.add('priority-low');
+  }
+  else if (task.priority == 'medium') {
+    taskPriority.classList.add('priority-mid');
+  }
+  else {
+    taskPriority.classList.add('priority-high');
+  }
+
   taskRightDown.appendChild(priorityTag);
   taskRightDown.appendChild(taskPriority);
 
@@ -93,16 +104,38 @@ addTaskBtn.addEventListener('click', () => {
 
 closeDialogBtn.addEventListener('click', () => {
   taskDialog.classList.remove('active');
+  editBtn.classList.add('hidden');
+  doneBtn.classList.remove('hidden');
   taskForm.reset();
 });
 
 doneBtn.addEventListener('click', (event) => {
   event.preventDefault();
 
+  if (!editBtn.classList.contains('hidden')) {
+    return;
+  }
+
   const title = document.getElementById('task-title').value;
   const description = document.getElementById('task-description').value;
   const dueDate = document.getElementById('task-due-date').value;
   const priority = document.getElementById('task-priority').value;
+
+  const errorMessage = document.getElementById('error-message');
+
+  if (!title || !description || !dueDate || !priority) {
+    errorMessage.textContent = 'Please fill out all required fields: Title, Description, Due Date, and Priority.';
+    errorMessage.classList.remove('hidden');
+
+    setTimeout(() => {
+      errorMessage.classList.add('hidden');
+    }, 5000);
+
+    return;
+  } else {
+    errorMessage.classList.add('hidden');
+  }
+
   const newTask = new Task(title, description, dueDate, priority);
 
   storedTasks.push(newTask);
@@ -116,7 +149,7 @@ const deleteTask = (taskId) => {
   const taskIndex = storedTasks.findIndex(task => task.id === parseInt(taskId));
 
   if (taskIndex !== -1) {
-    storedTasks.splice(taskIndex, 1); 
+    storedTasks.splice(taskIndex, 1);
     saveTasksToLocalStorage(storedTasks);
   }
 };
@@ -139,7 +172,10 @@ const openEditDialog = (task) => {
 
   taskDialog.classList.add('active');
 
-  doneBtn.onclick = (event) => {
+  doneBtn.classList.add('hidden');
+  editBtn.classList.remove('hidden');
+
+  editBtn.onclick = (event) => {
     event.preventDefault();
 
     task.title = document.getElementById('task-title').value;
@@ -154,6 +190,9 @@ const openEditDialog = (task) => {
 
     taskDialog.classList.remove('active');
     taskForm.reset();
+
+    editBtn.classList.add('hidden');
+    doneBtn.classList.remove('hidden');
   };
 };
 
@@ -164,6 +203,7 @@ const addTaskBoxClickFunctionality = (taskElement, task) => {
     }
   });
 };
+
 
 renderTasks(storedTasks);
 

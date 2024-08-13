@@ -134,7 +134,7 @@ body {
 
 .main-content {
     width: 80%;
-    
+
 }
 
 .taskbox {
@@ -193,11 +193,11 @@ body {
     border-radius: 0.5rem;
 }
 
-.fa-note-sticky:hover{
+.fa-note-sticky:hover {
     color: rgb(0, 204, 255);
 }
 
-.fa-trash-can:hover{
+.fa-trash-can:hover {
     color: red;
 }
 
@@ -212,7 +212,7 @@ body {
     font-size: 1.4rem;
 }
 
-.taskbox .taskbox-priority{
+.taskbox .taskbox-priority {
     font-size: 1.5rem;
     padding: 0.2rem 0.4rem;
     border-radius: 0.4rem;
@@ -249,7 +249,7 @@ body {
     color: var(--yellow);
 }
 
-.taskbox .taskbox-hover1:hover{
+.taskbox .taskbox-hover1:hover {
     background-color: var(--gray-light);
 }
 
@@ -257,7 +257,7 @@ body {
     transform: scale(0.95);
 }
 
-.taskbox .taskbox-hover1:active{
+.taskbox .taskbox-hover1:active {
     transform: scale(0.95);
 }
 
@@ -278,7 +278,7 @@ body {
     padding: 0.5rem 1rem;
     z-index: 999;
     opacity: 0;
-    transition: step-start 0.8s ease-in-out; 
+    transition: step-start 0.8s ease-in-out;
 }
 
 .dialog-container.active {
@@ -294,7 +294,7 @@ body {
     font-size: 1.6rem;
 }
 
-#close-dialog{
+#close-dialog {
     background: none;
     color: red;
     font-weight: 900;
@@ -302,21 +302,33 @@ body {
     align-self: flex-end;
 }
 
-#close-dialog:hover{
+#close-dialog:hover {
     background-color: var(--gray-light);
 }
 
-input, textarea, select{
+input,
+textarea,
+select {
     border-radius: 0.5rem;
     border: 1px solid var(--yellow);
     background-color: var(--text-primary);
 }
 
-input{
+input {
     height: 2.4rem;
 }
 
-.done{
+.error-message {
+    color: red;
+    background-color: #fdd;
+    padding: 8px;
+    border-radius: 5px;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.done,
+.edit {
     background-color: var(--accent-color);
     color: white;
     font-size: 2rem;
@@ -327,11 +339,17 @@ input{
     transition: background-color 0.1s ease-in-out, color 0.1s ease-in-out;
 }
 
-.done:hover {
+.hidden {
+    display: none;
+}
+
+.done:hover,
+.edit:hover {
     background-color: rgba(48, 128, 120, 0.6);
     color: white;
 }
 
-.done:active {
+.done:active,
+.edit:active {
     transform: scale(0.95);
 }
