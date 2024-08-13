@@ -1,6 +1,7 @@
 import './style.css'
 import Task from './task.js';
 import { saveTasksToLocalStorage, loadTasksFromLocalStorage } from './storage.js';
+import { filterTasks } from './taskSorter.js';
 
 const addTaskBtn = document.querySelector('.add-btn');
 const taskDialog = document.getElementById('task-dialog');
@@ -9,8 +10,20 @@ const taskForm = document.getElementById('task-form');
 const doneBtn = document.querySelector('.done');
 const mainContent = document.querySelector('.main-content');
 const editBtn = document.querySelector('.edit');
+const taskList = document.getElementById('task-list');
 
 const storedTasks = loadTasksFromLocalStorage();
+
+document.getElementById('filter-all').addEventListener('click', () => displayTasks('all'));
+document.getElementById('filter-today').addEventListener('click', () => displayTasks('today'));
+document.getElementById('filter-week').addEventListener('click', () => displayTasks('week'));
+document.getElementById('filter-important').addEventListener('click', () => displayTasks('important'));
+document.getElementById('filter-expired').addEventListener('click', () => displayTasks('expired'));
+
+function displayTasks(filter) {
+  const filteredTasks = filterTasks(storedTasks, filter);
+  renderTasks(filteredTasks);
+}
 
 const createTaskElement = (task) => {
   const taskElement = document.createElement('div');
@@ -124,7 +137,7 @@ doneBtn.addEventListener('click', (event) => {
   const errorMessage = document.getElementById('error-message');
 
   if (!title || !description || !dueDate || !priority) {
-    errorMessage.textContent = 'Please fill out all required fields: Title, Description, Due Date, and Priority.';
+    errorMessage.textContent = 'Please fill out all required fields.';
     errorMessage.classList.remove('hidden');
 
     setTimeout(() => {
