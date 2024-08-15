@@ -10,7 +10,6 @@ const taskForm = document.getElementById('task-form');
 const doneBtn = document.querySelector('.done');
 const mainContent = document.querySelector('.main-content');
 const editBtn = document.querySelector('.edit');
-const taskList = document.getElementById('task-list');
 
 const storedTasks = loadTasksFromLocalStorage();
 
