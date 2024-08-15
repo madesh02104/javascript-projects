@@ -150,6 +150,12 @@ h1 {
     background-color: #1A2130;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
+    height: 3rem;
+    overflow: auto;
+}
+
+h1::-webkit-scrollbar{
+    display: none;
 }
 
 .readButton,

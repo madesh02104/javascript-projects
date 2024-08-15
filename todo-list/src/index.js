@@ -69,6 +69,7 @@ const createTaskElement = (task) => {
   taskDelete.classList.add('taskbox-delete', 'taskbox-hover');
   const deleteIcon = document.createElement('i');
   deleteIcon.classList.add('fa-regular', 'fa-trash-can', 'fa-2x');
+
   taskDelete.appendChild(deleteIcon);
   taskRightUp.appendChild(taskDelete);
 
@@ -78,9 +79,7 @@ const createTaskElement = (task) => {
 
   const taskPriority = document.createElement('div');
   taskPriority.classList.add('taskbox-priority');
-  taskPriority.textContent = task.priority;
-
-  if (task.priority == 'low') {
+   if (task.priority == 'low') {
     taskPriority.classList.add('priority-low');
   }
   else if (task.priority == 'medium') {
@@ -89,6 +88,8 @@ const createTaskElement = (task) => {
   else {
     taskPriority.classList.add('priority-high');
   }
+
+  taskPriority.textContent = task.priority;
 
   taskRightDown.appendChild(priorityTag);
   taskRightDown.appendChild(taskPriority);
