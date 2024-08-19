@@ -1,0 +1,223 @@
+@import url('https://fonts.googleapis.com/css2?family=New+Amsterdam&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    border: none;
+    font-family: Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+menu:not(article menu),
+ol:not(article ol),
+ul:not(article ul) {
+    list-style: none;
+}
+
+menu,
+ol,
+ul {
+    padding-left: 0;
+}
+
+article ol,
+article ul {
+    list-style-position: inside;
+}
+
+html {
+    font-size: 62.5%;
+    /* (62.5/100) * 16px = 10px */
+}
+
+html {
+    -webkit-text-size-adjust: none;
+    /* for iOS Safari */
+    text-size-adjust: none;
+    /* for other mobile browsers */
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    html {
+        scroll-behavior: smooth;
+    }
+}
+
+label,
+button,
+select,
+summary,
+[type=radio],
+[type=submit],
+[type=checkbox] {
+    cursor: pointer;
+}
+
+/* Root Colors */
+
+
+
+/* styles */
+
+body{
+    background-color: #161A30;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 1rem;
+}
+
+.logo-div h1{
+    color: white;
+    font-size: 2.5rem;
+    font-family: "New Amsterdam", sans-serif;
+    font-style: italic;
+    font-weight: 1000;
+    padding: 0;
+    margin: 0;
+}
+
+.icon-div{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+i{
+    padding: 0;
+    font-size: 2rem;
+}
+
+.fa-sun{
+    color: rgb(255, 196, 0);
+}
+
+.fa-cloud-rain{
+    color: rgba(0, 132, 255, 1);
+}
+
+.fa-cloud-bolt{
+    color: rgb(255, 196, 0);
+}
+
+.fa-snowflake{
+    color: rgba(0, 132, 255, 1);
+}
+
+section{
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+input{
+    height: 3rem;
+    width: 20rem;
+    border: none;
+    border-radius: 2rem;
+    font-size: 1.5rem;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+}
+
+input:hover{
+    background-color: #B6BBC4;
+}
+
+.submit-btn{
+    height: 3rem;
+    width: 7rem;
+    border: none;
+    border-radius: 2rem;
+    font-size: 1.5rem;
+    background-color: rgba(0, 132, 255, 1);
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.submit-btn:hover{
+    background-color: rgba(0, 132, 255, 0.7);
+}
+
+.content-div{
+    background-color: #B6BBC4;
+    height: 24rem;
+    width: 36rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.8fr 2fr 1fr;
+    margin: 0;
+    padding: 0;
+    border: none;
+    border-radius: 1.5rem;
+}
+
+.switch-unit-div{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-radius: 1.5rem;
+}
+
+.f-button{
+    width: auto;
+    border-top-left-radius: 1.5rem;
+    font-size: 1.5rem;
+    font-family: "Poppins", sans-serif;
+}
+
+.f-button:hover{
+    background-color: rgba(0, 132, 255, 1);
+}
+
+.f-button:active{
+    background-color: #B6BBC4;
+}
+
+.c-button{
+    width: auto;
+    border-top-right-radius: 1.5rem;
+    font-size: 1.5rem;
+    font-family: "Poppins", sans-serif;
+}
+
+.f-button:active{
+    background-color: #B6BBC4;
+}
+
+.c-button:hover{
+    background-color: rgba(0, 132, 255, 1);
+}
+
+.display-div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 8rem;
+    font-weight: 600;
+    font-family: "Poppins", sans-serif;
+    color: rgb(201, 154, 2);
+}
+
+.info-div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    font-family: "Poppins", sans-serif;
+
+}
+
