@@ -137,7 +137,7 @@ input:hover{
     background-color: #B6BBC4;
 }
 
-.submit-btn{
+.search-btn{
     height: 3rem;
     width: 7rem;
     border: none;
@@ -147,10 +147,15 @@ input:hover{
     color: white;
     font-weight: 600;
     cursor: pointer;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
 }
 
-.submit-btn:hover{
+.search-btn:hover{
     background-color: rgba(0, 132, 255, 0.7);
+}
+.search-btn:active{
+    transform: scale(0.95);
 }
 
 .content-div{
@@ -179,14 +184,6 @@ input:hover{
     font-family: "Poppins", sans-serif;
 }
 
-.f-button:hover{
-    background-color: rgba(0, 132, 255, 1);
-}
-
-.f-button:active{
-    background-color: #B6BBC4;
-}
-
 .c-button{
     width: auto;
     border-top-right-radius: 1.5rem;
@@ -194,15 +191,7 @@ input:hover{
     font-family: "Poppins", sans-serif;
 }
 
-.f-button:active{
-    background-color: #B6BBC4;
-}
-
-.c-button:hover{
-    background-color: rgba(0, 132, 255, 1);
-}
-
-.display-div{
+.degree-div{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -218,6 +207,5 @@ input:hover{
     align-items: center;
     font-size: 3rem;
     font-family: "Poppins", sans-serif;
-
 }
 

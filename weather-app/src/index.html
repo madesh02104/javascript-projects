@@ -19,9 +19,9 @@
             </div>
         </div>
         <div class="form-div">
-            <form action="">
-                <input type="text" placeholder="  Enter Location . . .">
-                <button type="submit" class="submit-btn">Search</button>
+            <form onsubmit="return false">
+                <input type="text" placeholder="  Enter Location . . ." class="search-bar" required>
+                <button type="submit" class="search-btn">Search</button>
             </form>
         </div>
     </header>
@@ -31,8 +31,8 @@
                 <button class="f-button">Fahrenheit</button>
                 <button class="c-button">Celcius</button>
             </div>
-            <div class="display-div">82 F</div>
-            <div class="info-div">Climate is Good</div>
+            <div class="degree-div"></div>
+            <div class="info-div">Please Select Location</div>
         </div>
     </section>
 
