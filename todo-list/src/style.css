@@ -220,7 +220,7 @@ body {
 
 .priority-low {
     background-color: var(--gray-light);
-    color: rgba(250, 5, 5, 1);
+    color: rgb(19, 212, 29);
     font-weight: 700;
     font-size: 1.6rem;
     padding: 0.1rem 1rem;
@@ -238,7 +238,7 @@ body {
 
 .priority-high {
     background-color: var(--gray-light);
-    color: rgb(19, 212, 29);
+    color: rgba(250, 5, 5, 1);
     font-weight: 700;
     font-size: 1.6rem;
     padding: 0.1rem 1rem;
